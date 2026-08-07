@@ -78,7 +78,7 @@ export default function ExperienceModal({
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
             style={{ backgroundColor: experience.theme.bg }}
-            className="relative flex max-h-full w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-black/5 shadow-[0_40px_90px_rgba(15,55,38,0.3)]"
+            className="relative flex max-h-[calc(100svh-4rem)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-black/5 shadow-[0_40px_90px_rgba(15,55,38,0.3)]"
           >
             <button
               type="button"
@@ -90,7 +90,13 @@ export default function ExperienceModal({
             </button>
 
             {/* The card itself scrolls; the page behind it stays put. */}
-            <div className="overflow-y-auto overscroll-contain">
+            {/* flex-1 + min-h-0 are both required: a flex child defaults to
+                min-height:auto, which stops it shrinking below its content and
+                means overflow-y-auto never actually engages. */}
+            <div
+              data-lenis-prevent
+              className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
+            >
               <div className="relative aspect-[16/7] w-full overflow-hidden">
                 <Image
                   src={experience.image}

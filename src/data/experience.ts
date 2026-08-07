@@ -55,7 +55,7 @@ export const EXPERIENCES: Experience[] = [
     period: "2026 — Present",
     initials: "MK",
     theme: { bg: "#e3efe7", badge: "#c3ddcd" },
-    image: "/images/mock/experience/makueni-county-government.jpg",
+    image: "/images/experience/wote.webp",
     logo: "/images/logos/makueni-county.png",
     summary:
       "Ongoing volunteer planning role at the Kibwezi West sub county physical planning office.",
@@ -96,7 +96,7 @@ export const EXPERIENCES: Experience[] = [
     period: "2026",
     initials: "HU",
     theme: { bg: "#e4ebf2", badge: "#c8d6e4" },
-    image: "/images/mock/experience/state-department-housing-urban-development.jpg",
+    image: "/images/experience/housing.webp",
     logo: "/images/logos/state-department-housing.png",
     summary:
       "National-level planning internship at Kenya's housing and urban development department.",
@@ -176,7 +176,7 @@ export const EXPERIENCES: Experience[] = [
     period: "2023",
     initials: "KW",
     theme: { bg: "#f1ece1", badge: "#ded4c0" },
-    image: "/images/mock/experience/physical-planning-volunteer-programme.jpg",
+    image: "/images/experience/wote.webp",
     logo: "/images/logos/makueni-county.png",
     summary: "Attachment with the Kibwezi West sub county physical planning office.",
     roleOverview:
@@ -216,7 +216,7 @@ export const EXPERIENCES: Experience[] = [
     period: "2022",
     initials: "WO",
     theme: { bg: "#f3e6e1", badge: "#e5cec5" },
-    image: "/images/mock/experience/internship-experience.jpg",
+    image: "/images/experience/wote.webp",
     logo: "/images/logos/makueni-county.png",
     summary: "First planning attachment, based at the county headquarters in Wote.",
     roleOverview:

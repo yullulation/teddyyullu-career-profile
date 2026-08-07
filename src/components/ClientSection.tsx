@@ -164,7 +164,10 @@ function LightProject({
       </div>
 
       {project.gallery.length > 0 && (
-        <div className="mt-7 flex gap-4 overflow-x-auto pb-3 [scrollbar-width:thin]">
+        <div
+          data-lenis-prevent
+          className="mt-7 flex gap-4 overflow-x-auto pb-3 [scrollbar-width:thin]"
+        >
           {project.gallery.map((w) => (
             <Tile
               key={w.src}

@@ -39,15 +39,31 @@ export default function IntroVideo() {
     const video = videoRef.current;
     if (!card || !video) return;
 
+    /* Autoplay is only permitted while the element is genuinely muted, so set
+       the property directly rather than relying on the React prop having been
+       committed. A low threshold means it starts as soon as the card appears. */
+    const tryPlay = () => {
+      video.muted = true;
+      // Set the opening level here too: with autoPlay, loadedmetadata can fire
+      // before React attaches its handler, leaving volume at 1 for the unmute.
+      setQuietStart(video);
+      const attempt = video.play();
+      if (attempt) {
+        attempt.catch(() => {
+          // Blocked by policy or still buffering — retry once it can play.
+          video.addEventListener("canplay", () => video.play().catch(() => {}), {
+            once: true,
+          });
+        });
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+        if (entry.isIntersecting) tryPlay();
+        else video.pause();
       },
-      { threshold: 0.6 }
+      { threshold: 0.25 }
     );
     observer.observe(card);
     return () => observer.disconnect();
@@ -68,13 +84,14 @@ export default function IntroVideo() {
           className="relative mt-10 aspect-[9/16] w-[240px] overflow-hidden rounded-2xl shadow-[0_25px_60px_rgba(15,55,38,0.18)] ring-1 ring-black/5 sm:w-[280px]"
         >
           <video
-          onLoadedMetadata={(e) => setQuietStart(e.currentTarget)}
             ref={videoRef}
             src="/videos/introduction.mp4"
             muted={muted}
+            autoPlay
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            onLoadedMetadata={(e) => setQuietStart(e.currentTarget)}
             className="h-full w-full object-cover"
           >
             <track kind="captions" srcLang="en" label="English" />

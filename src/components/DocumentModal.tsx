@@ -101,6 +101,7 @@ export default function DocumentModal({
             </div>
 
             <object
+              data-lenis-prevent
               data={`${src}#view=FitH`}
               type="application/pdf"
               className="min-h-0 flex-1 bg-[#efece6]"
