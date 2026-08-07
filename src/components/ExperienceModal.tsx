@@ -107,13 +107,13 @@ export default function ExperienceModal({
                   priority
                 />
                 <div
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[130%]"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%]"
                   style={{
                     backgroundImage: `linear-gradient(to top,
-                      ${experience.theme.bg} 0%, ${experience.theme.bg} 24%,
-                      ${experience.theme.bg}f2 36%, ${experience.theme.bg}d9 47%,
-                      ${experience.theme.bg}b3 58%, ${experience.theme.bg}80 69%,
-                      ${experience.theme.bg}4d 79%, ${experience.theme.bg}26 89%,
+                      ${experience.theme.bg} 0%, ${experience.theme.bg} 14%,
+                      ${experience.theme.bg}f2 30%, ${experience.theme.bg}d9 44%,
+                      ${experience.theme.bg}b3 57%, ${experience.theme.bg}80 69%,
+                      ${experience.theme.bg}4d 80%, ${experience.theme.bg}26 91%,
                       ${experience.theme.bg}00 100%)`,
                   }}
                 />

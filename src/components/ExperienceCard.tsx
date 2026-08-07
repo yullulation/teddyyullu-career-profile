@@ -48,20 +48,22 @@ export default function ExperienceCard({
           ))}
         </div>
 
-        {/* Long, eased fade into the card colour. Multiple stops approximate an
-            ease curve — a plain two-stop gradient banded and read as a hard edge. */}
+        {/* Fade confined to the lower third so the photograph reads clearly.
+            It is fully solid by the bottom edge — just above the logo — and the
+            multiple stops approximate an ease curve, since a plain two-stop
+            gradient bands and reads as a hard edge. */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[130%]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%]"
           style={{
             backgroundImage: `linear-gradient(to top,
               ${experience.theme.bg} 0%,
-              ${experience.theme.bg} 26%,
-              ${experience.theme.bg}f2 38%,
-              ${experience.theme.bg}d9 48%,
-              ${experience.theme.bg}b3 58%,
-              ${experience.theme.bg}80 68%,
-              ${experience.theme.bg}4d 78%,
-              ${experience.theme.bg}26 88%,
+              ${experience.theme.bg} 14%,
+              ${experience.theme.bg}f2 30%,
+              ${experience.theme.bg}d9 44%,
+              ${experience.theme.bg}b3 57%,
+              ${experience.theme.bg}80 69%,
+              ${experience.theme.bg}4d 80%,
+              ${experience.theme.bg}26 91%,
               ${experience.theme.bg}00 100%)`,
           }}
         />
