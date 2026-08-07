@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { PillAction, PillButton } from "./AnimatedLink";
-import { PORTFOLIO_PDF } from "@/data/site";
+import { PillAction } from "./AnimatedLink";
+import ComingSoonModal from "./ComingSoonModal";
 
 /** Solid tint so the campus photo can fade into the card, as on the experience cards. */
 const CARD_BG = "#eef6f1";
@@ -35,6 +35,7 @@ const DETAILS = [
 
 export default function AcademicQualifications() {
   const [open, setOpen] = useState(false);
+  const [soon, setSoon] = useState(false);
 
   return (
     <section
@@ -159,12 +160,12 @@ export default function AcademicQualifications() {
             <PillAction onClick={() => setOpen((v) => !v)} expanded={open}>
               {open ? "Hide Academic Details" : "View Academic Details"}
             </PillAction>
-            <PillButton href={PORTFOLIO_PDF} external>
-              Download Professional Portfolio
-            </PillButton>
+            <PillAction onClick={() => setSoon(true)}>Download Professional Portfolio</PillAction>
           </div>
         </motion.div>
       </div>
+
+      <ComingSoonModal open={soon} onClose={() => setSoon(false)} />
     </section>
   );
 }

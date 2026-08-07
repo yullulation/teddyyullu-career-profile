@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { PillAction, PillButton } from "./AnimatedLink";
+import { PillAction } from "./AnimatedLink";
+import PortfolioDownload from "./PortfolioDownload";
 import { setScrollLocked } from "./SmoothScroll";
-import { PORTFOLIO_PDF } from "@/data/site";
 
 type Reference = {
   name: string;
@@ -112,21 +112,7 @@ export default function ProfessionalReferences() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 flex flex-col items-start gap-4 border-t border-black/5 pt-10 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <p className="max-w-md text-sm leading-relaxed text-foreground/55">
-            One document containing the CV, academic certificates, professional
-            certifications, and recommendation letters.
-          </p>
-          <PillButton href={PORTFOLIO_PDF} external>
-            Download Professional Portfolio
-          </PillButton>
-        </motion.div>
+        <PortfolioDownload />
       </div>
 
       <AnimatePresence>

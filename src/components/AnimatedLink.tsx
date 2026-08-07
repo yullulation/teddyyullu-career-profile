@@ -39,8 +39,8 @@ export function NavLink({
 function PillInner({ children, solid }: { children: React.ReactNode; solid?: boolean }) {
   return (
     <>
-      <span className="relative block h-4 overflow-hidden">
-        <span className="block transition-transform duration-300 ease-out group-hover/pill:-translate-y-full">
+      <span className="relative block h-4 overflow-hidden whitespace-nowrap">
+        <span className="block whitespace-nowrap transition-transform duration-300 ease-out group-hover/pill:-translate-y-full">
           {children}
         </span>
         <span
@@ -77,14 +77,22 @@ export function PillAction({
   children,
   onClick,
   expanded,
+  variant = "glass",
 }: {
   children: React.ReactNode;
   onClick: () => void;
   expanded?: boolean;
+  variant?: "glass" | "solid";
 }) {
+  const solid = variant === "solid";
   return (
-    <button type="button" onClick={onClick} aria-expanded={expanded} className={PILL_CLASS}>
-      <PillInner>{children}</PillInner>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={expanded}
+      className={solid ? PILL_SOLID_CLASS : PILL_CLASS}
+    >
+      <PillInner solid={solid}>{children}</PillInner>
     </button>
   );
 }

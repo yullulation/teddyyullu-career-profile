@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink } from "./AnimatedLink";
 import { setScrollLocked } from "./SmoothScroll";
@@ -13,10 +14,20 @@ const LINKS = [
   { href: "/contact", label: "CONTACT" },
 ];
 
+/** The top-left slot names the page you are on, rather than repeating the brand. */
+function currentPageLabel(pathname: string) {
+  const match = LINKS.find(
+    (l) => l.href !== "/" && (pathname === l.href || pathname.startsWith(`${l.href}/`))
+  );
+  return match ? match.label : "FRONT";
+}
+
 export default function SiteNav() {
   // Each link closes the sheet in its own onClick, so no route-change effect
   // is needed here.
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const pageLabel = currentPageLabel(pathname ?? "/");
 
   useEffect(() => {
     if (!open) return;
@@ -37,9 +48,10 @@ export default function SiteNav() {
       <nav className="glass fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 sm:px-10">
         <Link
           href="/"
+          aria-label="Home"
           className="font-sans text-sm font-semibold tracking-[0.28em] text-foreground"
         >
-          YULLULATION
+          {pageLabel}
         </Link>
 
         {/* Desktop */}

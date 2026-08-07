@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
+
 import { motion } from "framer-motion";
-import { PillButton } from "./AnimatedLink";
+import { PillAction, PillButton } from "./AnimatedLink";
+import ComingSoonModal from "./ComingSoonModal";
 import HeroCards from "./HeroCards";
-import { PORTFOLIO_PDF } from "@/data/site";
 
 const ROLES = ["Urban & Regional Planner", "Graphic Designer"];
 
@@ -16,6 +18,8 @@ const METRICS = [
 ];
 
 export default function Hero() {
+  const [soon, setSoon] = useState(false);
+
   return (
     <section className="relative w-full overflow-hidden bg-background pb-16 pt-32 sm:pt-40 lg:min-h-[100svh] lg:pb-0 lg:pt-0">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 sm:px-10 lg:min-h-[100svh] lg:grid-cols-[0.42fr_0.58fr] lg:gap-8 lg:px-16">
@@ -69,9 +73,9 @@ export default function Hero() {
           </dl>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <PillButton href={PORTFOLIO_PDF} external variant="solid">
+            <PillAction onClick={() => setSoon(true)} variant="solid">
               Download Portfolio
-            </PillButton>
+            </PillAction>
             <PillButton href="/experience">Explore Career Profile</PillButton>
           </div>
         </motion.div>
@@ -80,6 +84,8 @@ export default function Hero() {
           <HeroCards />
         </div>
       </div>
+
+      <ComingSoonModal open={soon} onClose={() => setSoon(false)} />
     </section>
   );
 }
