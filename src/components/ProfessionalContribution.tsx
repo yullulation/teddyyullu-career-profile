@@ -29,9 +29,9 @@ export default function ProfessionalContribution() {
   return (
     <section
       id="contribution"
-      className="scroll-mt-24 border-t border-black/5 px-6 py-20 sm:px-10 lg:py-28"
+      className="ink-panel relative scroll-mt-24 overflow-hidden px-6 py-24 sm:px-10 lg:py-32"
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="relative z-10 mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,17 +39,17 @@ export default function ProfessionalContribution() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 max-w-xl"
         >
-          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-gold">
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-lux">
             Professional Contribution
           </span>
-          <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="display-xl mt-5 text-4xl text-[#f2faf5] sm:text-5xl lg:text-[3.4rem]">
             Giving back to the community.
           </h2>
-          <p className="mt-5 text-sm leading-relaxed text-foreground/60">
+          <p className="mt-6 text-[15px] leading-relaxed text-[#cfe3d7]/75">
             Professional growth extends beyond personal achievement. It also involves
             investing in others through mentorship, teaching, and community service.
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-foreground/60">
+          <p className="mt-4 text-[15px] leading-relaxed text-[#cfe3d7]/75">
             Alongside my work as a Physical Planner and Graphic Designer, I have volunteered
             as a Graphic Design Instructor, helping young creatives develop practical design
             skills and confidence using modern digital tools.

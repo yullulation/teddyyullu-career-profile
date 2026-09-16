@@ -14,6 +14,9 @@ const LINKS = [
   { href: "/contact", label: "CONTACT" },
 ];
 
+/** Routes whose first screen is a dark chapter, so the bar starts inverted. */
+const DARK_HERO_ROUTES = new Set(["/"]);
+
 /** The top-left slot names the page you are on, rather than repeating the brand. */
 function currentPageLabel(pathname: string) {
   const match = LINKS.find(
@@ -26,8 +29,20 @@ export default function SiteNav() {
   // Each link closes the sheet in its own onClick, so no route-change effect
   // is needed here.
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const pageLabel = currentPageLabel(pathname ?? "/");
+
+  /* Over a dark hero the bar carries no fill and light type; once the page
+     moves under it, it returns to the usual glass. */
+  const inverted = DARK_HERO_ROUTES.has(pathname ?? "/") && !scrolled && !open;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -45,11 +60,17 @@ export default function SiteNav() {
 
   return (
     <>
-      <nav className="glass fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 sm:px-10">
+      <nav
+        className={`fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-colors duration-500 sm:px-10 ${
+          inverted ? "bg-transparent" : "glass"
+        }`}
+      >
         <Link
           href="/"
           aria-label="Home"
-          className="font-sans text-sm font-semibold tracking-[0.28em] text-foreground"
+          className={`font-sans text-sm font-semibold tracking-[0.28em] transition-colors duration-500 ${
+            inverted ? "text-[#eaf4ee]" : "text-foreground"
+          }`}
         >
           {pageLabel}
         </Link>
@@ -57,7 +78,7 @@ export default function SiteNav() {
         {/* Desktop */}
         <div className="hidden gap-8 text-xs font-medium tracking-[0.2em] sm:flex">
           {LINKS.map((l) => (
-            <NavLink key={l.href} href={l.href}>
+            <NavLink key={l.href} href={l.href} inverted={inverted}>
               {l.label}
             </NavLink>
           ))}
@@ -72,12 +93,18 @@ export default function SiteNav() {
           className="relative z-50 flex h-9 w-9 flex-col items-center justify-center gap-[5px] sm:hidden"
         >
           <span
-            className="block h-[1.5px] w-5 rounded-full bg-foreground transition-transform duration-300"
-            style={{ transform: open ? "translateY(3.25px) rotate(45deg)" : "none" }}
+            className="block h-[1.5px] w-5 rounded-full transition-all duration-300"
+            style={{
+              transform: open ? "translateY(3.25px) rotate(45deg)" : "none",
+              backgroundColor: inverted ? "#eaf4ee" : "var(--foreground)",
+            }}
           />
           <span
-            className="block h-[1.5px] w-5 rounded-full bg-foreground transition-transform duration-300"
-            style={{ transform: open ? "translateY(-3.25px) rotate(-45deg)" : "none" }}
+            className="block h-[1.5px] w-5 rounded-full transition-all duration-300"
+            style={{
+              transform: open ? "translateY(-3.25px) rotate(-45deg)" : "none",
+              backgroundColor: inverted ? "#eaf4ee" : "var(--foreground)",
+            }}
           />
         </button>
       </nav>

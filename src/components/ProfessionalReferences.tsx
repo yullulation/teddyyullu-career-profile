@@ -84,7 +84,7 @@ export default function ProfessionalReferences() {
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6 }}
-              className="glass flex h-full flex-col rounded-2xl p-7 shadow-[0_20px_45px_rgba(15,55,38,0.1)] transition-shadow duration-300 hover:shadow-[0_30px_60px_rgba(15,55,38,0.18)]"
+              className="plate plate-hover flex h-full flex-col p-8"
             >
               <div className="flex items-start gap-4">
                 <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xs font-semibold tracking-wide text-gold">

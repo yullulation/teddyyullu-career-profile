@@ -24,7 +24,7 @@ export default function ExperienceCard({
       transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -8 }}
       style={{ backgroundColor: experience.theme.bg }}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 shadow-[0_20px_45px_rgba(15,55,38,0.1)] transition-shadow duration-300 hover:shadow-[0_30px_60px_rgba(15,55,38,0.18)]"
+      className="group flex h-full flex-col overflow-hidden rounded-[30px] border border-black/5 shadow-[0_20px_45px_rgba(15,55,38,0.1)] transition-shadow duration-300 hover:shadow-[0_30px_60px_rgba(15,55,38,0.18)]"
     >
       {/* Header image, fading into the card colour */}
       <div className="relative aspect-[16/11] w-full overflow-hidden">
