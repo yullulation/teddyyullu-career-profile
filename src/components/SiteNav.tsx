@@ -14,8 +14,11 @@ const LINKS = [
   { href: "/contact", label: "CONTACT" },
 ];
 
-/** Routes whose first screen is a dark chapter, so the bar starts inverted. */
-const DARK_HERO_ROUTES = new Set(["/"]);
+/** Routes that open on a dark chapter, so the bar starts inverted. */
+const DARK_HERO_ROUTES = new Set(["/", "/experience", "/portfolio", "/contact"]);
+
+/** Routes that are dark the whole way down, where the bar never reverts. */
+const FULLY_DARK_ROUTES = new Set(["/contact"]);
 
 /** The top-left slot names the page you are on, rather than repeating the brand. */
 function currentPageLabel(pathname: string) {
@@ -35,7 +38,10 @@ export default function SiteNav() {
 
   /* Over a dark hero the bar carries no fill and light type; once the page
      moves under it, it returns to the usual glass. */
-  const inverted = DARK_HERO_ROUTES.has(pathname ?? "/") && !scrolled && !open;
+  const route = pathname ?? "/";
+  const inverted =
+    !open &&
+    (FULLY_DARK_ROUTES.has(route) || (DARK_HERO_ROUTES.has(route) && !scrolled));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

@@ -66,7 +66,7 @@ export default function ProfessionalReferences() {
           <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-gold">
             Professional References
           </span>
-          <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-4 display-xl text-[2.1rem] text-foreground sm:text-[2.9rem]">
             Verified by the people I worked with.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-foreground/60">

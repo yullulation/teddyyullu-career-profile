@@ -67,14 +67,14 @@ function ChannelRow({
 }) {
   const body = (
     <>
-      <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-foreground/70 transition-colors duration-300 group-hover/row:text-gold">
+      <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#cfe3d7]/70 transition-colors duration-300 group-hover/row:text-lux">
         {icon}
       </span>
       <span className="min-w-0">
-        <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+        <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
           {label}
         </span>
-        <span className="mt-1 block truncate font-sans text-base font-medium text-foreground transition-colors duration-300 group-hover/row:text-gold sm:text-lg">
+        <span className="mt-1 block truncate font-sans text-base font-medium text-[#f2faf5] transition-colors duration-300 group-hover/row:text-lux sm:text-lg">
           {value}
         </span>
       </span>
@@ -100,22 +100,22 @@ function ChannelRow({
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-[100svh] bg-background px-6 pb-16 pt-28 sm:px-10 sm:pt-32">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+    <main className="ink-panel relative min-h-[100svh] overflow-hidden px-6 pb-16 pt-32 sm:px-10 sm:pt-40">
+      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
-          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-gold">
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-lux">
             Let&apos;s Connect
           </span>
 
-          <h1 className="mt-6 max-w-xl font-sans text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl">
+          <h1 className="display-xl mt-6 max-w-xl text-[2.7rem] text-[#f2faf5] sm:text-[4rem]">
             Let&apos;s{" "}
             <HighlightCircle>
-              <span className="italic font-display font-normal text-gold-soft">connect</span>
+              <span className="italic font-display font-normal text-lux">connect</span>
             </HighlightCircle>
             .
           </h1>
 
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-foreground/65">
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-[#cfe3d7]/75">
             Whether you&apos;re looking for a Physical Planner, a Graphic Designer, or would
             simply like to discuss a project, collaboration, or professional opportunity,
             I&apos;d be glad to hear from you. Feel free to reach out through any of the
@@ -147,13 +147,13 @@ export default function ContactPage() {
 
           <div className="mt-12 grid max-w-md grid-cols-1 gap-8 border-t border-black/5 pt-8 sm:grid-cols-2">
             <div>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
                 Current Location
               </span>
               <span className="mt-2 block text-sm text-foreground/80">Nairobi, Kenya</span>
             </div>
             <div>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
                 Professional Interests
               </span>
               <ul className="mt-2 space-y-1.5">
@@ -184,7 +184,7 @@ export default function ContactPage() {
 
       {/* Closing note — the last thing on the profile */}
       <div className="mx-auto mt-20 max-w-6xl border-t border-black/5 pt-10">
-        <p className="max-w-2xl font-display text-lg italic leading-snug text-foreground/70 sm:text-xl">
+        <p className="max-w-2xl font-display text-lg italic leading-snug text-[#cfe3d7]/70 sm:text-xl">
           Thank you for taking the time to explore my Professional Career Profile. I
           appreciate your interest and look forward to the opportunity to connect.
         </p>

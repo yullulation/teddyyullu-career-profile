@@ -46,7 +46,7 @@ export default function PortfolioChooser() {
       <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-gold">
         Portfolio
       </span>
-      <h1 className="mt-6 max-w-2xl font-sans text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
+      <h1 className="mt-6 max-w-2xl display-xl text-[2.7rem] text-foreground sm:text-[4.2rem]">
         What are you looking <HighlightCircle>for?</HighlightCircle>
       </h1>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/55">

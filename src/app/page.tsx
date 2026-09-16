@@ -19,7 +19,7 @@ export default function Home() {
       <ProfessionalReferences />
       <ProfessionalContribution />
       <Portfolio />
-      <Footer />
+      <Footer onDark />
     </main>
   );
 }
