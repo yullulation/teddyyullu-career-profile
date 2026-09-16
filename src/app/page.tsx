@@ -1,14 +1,15 @@
 import Hero from "@/components/Hero";
 import Studio from "@/components/Studio";
-import Portfolio from "@/components/Portfolio";
 import AcademicQualifications from "@/components/AcademicQualifications";
 import ProfessionalReferences from "@/components/ProfessionalReferences";
 import ProfessionalContribution from "@/components/ProfessionalContribution";
+import PageFlow from "@/components/PageFlow";
 import Footer from "@/components/Footer";
 
-// The introduction video section is parked for now — the source file is 106MB
-// and made the page lag. src/components/IntroVideo.tsx is kept intact so it can
-// be dropped back in once the video is compressed and hosted externally.
+// The introduction video section is parked for now — see IntroVideo.tsx, which
+// is kept intact so it can be dropped back in.
+// Selected Projects was removed at the client's request; the page is meant to
+// close on the community contribution.
 
 export default function Home() {
   return (
@@ -18,7 +19,13 @@ export default function Home() {
       <AcademicQualifications />
       <ProfessionalReferences />
       <ProfessionalContribution />
-      <Portfolio />
+      <PageFlow
+        next={{
+          href: "/experience",
+          label: "Professional Experience",
+          caption: "Next",
+        }}
+      />
       <Footer onDark />
     </main>
   );

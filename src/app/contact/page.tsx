@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import PageFlow from "@/components/PageFlow";
 import HighlightCircle from "@/components/HighlightCircle";
 
 export const metadata: Metadata = {
@@ -183,17 +184,23 @@ export default function ContactPage() {
       </div>
 
       {/* Closing note — the last thing on the profile */}
-      <div className="mx-auto mt-20 max-w-6xl border-t border-black/5 pt-10">
+      <div className="relative z-10 mx-auto mt-20 max-w-6xl border-t border-[#eaf4ee]/10 pt-10">
         <p className="max-w-2xl font-display text-lg italic leading-snug text-[#cfe3d7]/70 sm:text-xl">
           Thank you for taking the time to explore my Professional Career Profile. I
           appreciate your interest and look forward to the opportunity to connect.
         </p>
       </div>
 
-      <footer className="mx-auto mt-14 flex max-w-6xl flex-col gap-2 text-xs text-foreground/40 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="relative z-10 mx-auto mt-14 flex max-w-6xl flex-col gap-2 text-xs text-[#cfe3d7]/45 sm:flex-row sm:items-center sm:justify-between">
         <span>Teddy Yullu — Urban Planning × Design</span>
         <span>© {new Date().getFullYear()}. All rights reserved.</span>
       </footer>
+      <div className="relative z-10 -mx-6 mt-16 sm:-mx-10">
+        <PageFlow
+          back={{ href: "/portfolio", label: "Professional Collaborations", caption: "Back" }}
+          next={{ href: "/", label: "Front", caption: "Start over" }}
+        />
+      </div>
     </main>
   );
 }

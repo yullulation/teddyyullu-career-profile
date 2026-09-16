@@ -4,6 +4,7 @@ import { useState } from "react";
 import ClientSection from "@/components/ClientSection";
 import Lightbox, { type LightboxItem } from "@/components/Lightbox";
 import PageHero from "@/components/PageHero";
+import PageFlow from "@/components/PageFlow";
 import Footer from "@/components/Footer";
 import { CLIENTS, type ClientWork } from "@/data/clients";
 
@@ -44,6 +45,10 @@ export default function PortfolioPage() {
       ))}
 
       <Lightbox item={active} onClose={() => setActive(null)} />
+      <PageFlow
+        back={{ href: "/experience", label: "Professional Experience", caption: "Back" }}
+        next={{ href: "/contact", label: "Let's Connect", caption: "Next" }}
+      />
       <Footer onDark />
     </main>
   );
