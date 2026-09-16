@@ -39,11 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Large media kept out of git.
-# GitHub rejects files over 100MB, and these are served from external hosting.
-# introduction.mp4 (106MB) and clients/q-fest.mp4 (59MB) are referenced by the app;
-# upload them to Vercel Blob / Cloudinary and point the code at those URLs.
-# The remaining reels are not referenced anywhere in src/.
-/public/videos/**/*.mp4
-/public/videos/*.mp4
