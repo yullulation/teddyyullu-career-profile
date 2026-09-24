@@ -100,50 +100,43 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Portrait on a bright plate — the Apple object, lit against the dark field. */}
+        {/* Cut out of its original background so he stands directly on the
+            gradient rather than inside a card. */}
         <motion.div
-          initial={{ opacity: 0, y: 34, scale: 0.97 }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.15, ease: EASE }}
           className="order-1 lg:order-2"
         >
-          <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
-            {/* Bloom behind the plate so it reads as lit, not pasted on. */}
+          <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none">
+            {/* Bloom behind the figure, so he reads as lit from the field itself. */}
             <div
               aria-hidden
-              className="pointer-events-none absolute -inset-10 -z-10 rounded-full opacity-70 blur-3xl"
+              className="pointer-events-none absolute inset-x-[-12%] bottom-[6%] top-[4%] -z-10 rounded-full opacity-80 blur-3xl"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 45%, rgba(47,143,99,0.5), transparent 62%)",
+                  "radial-gradient(circle at 50% 52%, rgba(47,143,99,0.55), rgba(26,92,58,0.22) 45%, transparent 70%)",
               }}
             />
-            <div className="plate relative overflow-hidden">
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <Image
-                  src="/images/hero/portrait.jpg"
-                  alt="Teddy Yullu"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 42vw"
-                  className="object-cover object-top"
-                />
-              </div>
+            <Image
+              src="/images/hero/portrait-cutout.webp"
+              alt="Teddy Yullu"
+              width={1100}
+              height={1264}
+              priority
+              sizes="(max-width: 1024px) 80vw, 44vw"
+              className="h-auto w-full object-contain drop-shadow-[0_28px_50px_rgba(0,0,0,0.45)]"
+            />
 
-              {/* The Impreza name bar, restated as a quiet caption strip. */}
-              <div className="flex items-center justify-between gap-4 px-6 py-5">
-                <div>
-                  <p className="text-[9px] font-medium uppercase tracking-[0.22em] text-foreground/45">
-                    Nairobi, Kenya
-                  </p>
-                  <p className="mt-1.5 font-sans text-sm font-semibold tracking-tight text-foreground">
-                    Available for opportunities
-                  </p>
-                </div>
-                <span className="flex h-2.5 w-2.5 shrink-0 items-center justify-center">
-                  <span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-gold/40" />
-                  <span className="h-2 w-2 rounded-full bg-gold" />
-                </span>
-              </div>
+            {/* Status, floating free of any card. */}
+            <div className="glass absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full px-4 py-2 sm:bottom-4">
+              <span className="relative flex h-2 w-2 shrink-0 items-center justify-center">
+                <span className="absolute h-2 w-2 animate-ping rounded-full bg-gold/50" />
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              </span>
+              <span className="whitespace-nowrap text-[9.5px] font-medium uppercase tracking-[0.16em] text-foreground/75">
+                Available for opportunities
+              </span>
             </div>
           </div>
         </motion.div>

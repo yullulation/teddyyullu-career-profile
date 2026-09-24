@@ -25,7 +25,7 @@ export default function PortfolioDownload() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10%" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mt-16 overflow-hidden rounded-2xl px-8 py-10 shadow-[0_28px_60px_-20px_rgba(15,55,38,0.5)] sm:px-12 sm:py-12"
+        className="relative mt-16 overflow-hidden rounded-[26px] px-6 py-9 shadow-[0_28px_60px_-20px_rgba(15,55,38,0.5)] sm:px-12 sm:py-12"
         style={{ backgroundColor: "#12312a" }}
       >
         {/* soft light from the top-right, so the panel is not a flat block */}
@@ -53,9 +53,9 @@ export default function PortfolioDownload() {
             <button
               type="button"
               onClick={() => setSoon(true)}
-              className="group/dl mt-8 inline-flex items-center gap-3 rounded-full bg-[#f2f8f4] py-3 pl-7 pr-3 text-xs font-medium uppercase tracking-[0.2em] text-[#12312a] transition-colors duration-300 hover:bg-white"
+              className="group/dl mt-8 inline-flex max-w-full items-center gap-3 rounded-full bg-[#f2f8f4] py-3 pl-5 pr-3 text-left text-[10px] font-medium uppercase leading-snug tracking-[0.1em] text-[#12312a] transition-colors duration-300 hover:bg-white sm:pl-7 sm:text-xs sm:tracking-[0.2em]"
             >
-              <span className="whitespace-nowrap">Download Professional Portfolio</span>
+              <span className="min-w-0 sm:whitespace-nowrap">Download Professional Portfolio</span>
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#12312a] text-[#f2f8f4] transition-transform duration-300 group-hover/dl:translate-x-0.5">
                 <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">
                   <path

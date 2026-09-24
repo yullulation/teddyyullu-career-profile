@@ -15,10 +15,10 @@ const LINKS = [
 ];
 
 /** Routes that open on a dark chapter, so the bar starts inverted. */
-const DARK_HERO_ROUTES = new Set(["/", "/experience", "/portfolio", "/contact"]);
+const DARK_HERO_ROUTES = new Set(["/", "/experience", "/portfolio"]);
 
 /** Routes that are dark the whole way down, where the bar never reverts. */
-const FULLY_DARK_ROUTES = new Set(["/contact"]);
+const FULLY_DARK_ROUTES = new Set<string>();
 
 /** The top-left slot names the page you are on, rather than repeating the brand. */
 function currentPageLabel(pathname: string) {

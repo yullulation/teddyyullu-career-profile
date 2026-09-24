@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
-import PageFlow from "@/components/PageFlow";
 import HighlightCircle from "@/components/HighlightCircle";
 
 export const metadata: Metadata = {
@@ -68,14 +68,14 @@ function ChannelRow({
 }) {
   const body = (
     <>
-      <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#cfe3d7]/70 transition-colors duration-300 group-hover/row:text-lux">
+      <span className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-foreground/70 transition-colors duration-300 group-hover/row:text-gold">
         {icon}
       </span>
       <span className="min-w-0">
-        <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
+        <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
           {label}
         </span>
-        <span className="mt-1 block truncate font-sans text-base font-medium text-[#f2faf5] transition-colors duration-300 group-hover/row:text-lux sm:text-lg">
+        <span className="mt-1 block truncate font-sans text-base font-medium text-foreground transition-colors duration-300 group-hover/row:text-gold sm:text-lg">
           {value}
         </span>
       </span>
@@ -101,22 +101,22 @@ function ChannelRow({
 
 export default function ContactPage() {
   return (
-    <main className="ink-panel relative min-h-[100svh] overflow-hidden px-6 pb-16 pt-32 sm:px-10 sm:pt-40">
+    <main className="relative min-h-[100svh] bg-background px-6 pb-16 pt-32 sm:px-10 sm:pt-40">
       <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
-          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-lux">
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-gold">
             Let&apos;s Connect
           </span>
 
-          <h1 className="display-xl mt-6 max-w-xl text-[2.7rem] text-[#f2faf5] sm:text-[4rem]">
+          <h1 className="display-xl mt-6 max-w-xl text-[2.7rem] text-foreground sm:text-[4rem]">
             Let&apos;s{" "}
             <HighlightCircle>
-              <span className="italic font-display font-normal text-lux">connect</span>
+              <span className="italic font-display font-normal text-gold">connect</span>
             </HighlightCircle>
             .
           </h1>
 
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-[#cfe3d7]/75">
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-foreground/65">
             Whether you&apos;re looking for a Physical Planner, a Graphic Designer, or would
             simply like to discuss a project, collaboration, or professional opportunity,
             I&apos;d be glad to hear from you. Feel free to reach out through any of the
@@ -148,13 +148,13 @@ export default function ContactPage() {
 
           <div className="mt-12 grid max-w-md grid-cols-1 gap-8 border-t border-black/5 pt-8 sm:grid-cols-2">
             <div>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
+              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
                 Current Location
               </span>
               <span className="mt-2 block text-sm text-foreground/80">Nairobi, Kenya</span>
             </div>
             <div>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#cfe3d7]/45">
+              <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/45">
                 Professional Interests
               </span>
               <ul className="mt-2 space-y-1.5">
@@ -184,23 +184,34 @@ export default function ContactPage() {
       </div>
 
       {/* Closing note — the last thing on the profile */}
-      <div className="relative z-10 mx-auto mt-20 max-w-6xl border-t border-[#eaf4ee]/10 pt-10">
-        <p className="max-w-2xl font-display text-lg italic leading-snug text-[#cfe3d7]/70 sm:text-xl">
+      <div className="relative z-10 mx-auto mt-20 max-w-6xl border-t border-black/5 pt-10">
+        <p className="max-w-2xl font-display text-lg italic leading-snug text-foreground/70 sm:text-xl">
           Thank you for taking the time to explore my Professional Career Profile. I
           appreciate your interest and look forward to the opportunity to connect.
         </p>
       </div>
 
-      <footer className="relative z-10 mx-auto mt-14 flex max-w-6xl flex-col gap-2 text-xs text-[#cfe3d7]/45 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-3 border-t border-black/[0.07] pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <Link
+          href="/portfolio"
+          className="group/step inline-flex max-w-full items-center gap-2.5 rounded-full border border-black/10 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/70 transition-colors duration-300 hover:border-gold/45 hover:text-gold sm:text-[11px] sm:tracking-[0.16em]"
+        >
+          <span className="transition-transform duration-300 group-hover/step:-translate-x-0.5">&larr;</span>
+          Collaborations
+        </Link>
+        <Link
+          href="/"
+          className="group/step inline-flex max-w-full items-center gap-2.5 rounded-full bg-foreground px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.12em] text-[#f4f9f6] transition-shadow duration-300 hover:shadow-[0_14px_34px_-10px_rgba(15,55,38,0.55)] sm:text-[11px] sm:tracking-[0.16em]"
+        >
+          Back to the front
+          <span className="transition-transform duration-300 group-hover/step:translate-x-0.5">&rarr;</span>
+        </Link>
+      </div>
+
+      <footer className="relative z-10 mx-auto mt-14 flex max-w-6xl flex-col gap-2 text-xs text-foreground/45 sm:flex-row sm:items-center sm:justify-between">
         <span>Teddy Yullu — Urban Planning × Design</span>
         <span>© {new Date().getFullYear()}. All rights reserved.</span>
       </footer>
-      <div className="relative z-10 -mx-6 mt-16 sm:-mx-10">
-        <PageFlow
-          back={{ href: "/portfolio", label: "Professional Collaborations", caption: "Back" }}
-          next={{ href: "/", label: "Front", caption: "Start over" }}
-        />
-      </div>
     </main>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import ExperienceGallery from "@/components/ExperienceGallery";
 import PageHero from "@/components/PageHero";
-import PageFlow from "@/components/PageFlow";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -19,12 +18,11 @@ export default function ExperiencePage() {
       </PageHero>
 
       <ExperienceGallery />
-
-      <PageFlow
-        back={{ href: "/", label: "Front", caption: "Back" }}
-        next={{ href: "/portfolio", label: "Professional Collaborations", caption: "Next" }}
+      <Footer
+        onDark
+        back={{ href: "/", label: "Front" }}
+        next={{ href: "/portfolio", label: "Collaborations" }}
       />
-      <Footer onDark />
     </main>
   );
 }

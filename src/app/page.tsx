@@ -3,7 +3,6 @@ import Studio from "@/components/Studio";
 import AcademicQualifications from "@/components/AcademicQualifications";
 import ProfessionalReferences from "@/components/ProfessionalReferences";
 import ProfessionalContribution from "@/components/ProfessionalContribution";
-import PageFlow from "@/components/PageFlow";
 import Footer from "@/components/Footer";
 
 // The introduction video section is parked for now — see IntroVideo.tsx, which
@@ -19,14 +18,7 @@ export default function Home() {
       <AcademicQualifications />
       <ProfessionalReferences />
       <ProfessionalContribution />
-      <PageFlow
-        next={{
-          href: "/experience",
-          label: "Professional Experience",
-          caption: "Next",
-        }}
-      />
-      <Footer onDark />
+      <Footer onDark next={{ href: "/experience", label: "Professional Experience" }} />
     </main>
   );
 }
